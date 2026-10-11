@@ -1,5 +1,9 @@
 # UdeaBank
 
+[![CI/CD Pipeline](https://github.com/J3rmed/lab1arq/actions/workflows/build.yml/badge.svg)](https://github.com/J3rmed/lab1arq/actions/workflows/build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=J3rmed_lab1arq&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=J3rmed_lab1arq)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=J3rmed_lab1arq&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=J3rmed_lab1arq)
+
 Aplicación bancaria académica para administrar clientes, realizar transferencias entre cuentas y consultar el histórico de transacciones.
 
 El proyecto está compuesto por:
@@ -8,6 +12,39 @@ El proyecto está compuesto por:
 - **Base de datos:** PostgreSQL.
 - **Frontend:** React 19 + Vite 8, desarrollado en JavaScript/JSX.
 - **Mapeo:** MapStruct para convertir entidades JPA a DTOs.
+
+## Despliegue
+
+La aplicación está desplegada en **Render** (plan gratuito):
+
+| Componente | URL |
+| --- | --- |
+| Frontend | https://udeabank-front.onrender.com |
+| Backend (API REST) | https://udeabank-api.onrender.com/api |
+| Base de datos | PostgreSQL administrado en Render |
+
+> Al usar el plan gratuito, los servicios pueden tardar unos segundos en responder tras un periodo de inactividad (cold start).
+
+El backend se empaqueta con el [`Dockerfile`](Dockerfile) (imagen `eclipse-temurin:17-jre`) y se publica en GitHub Container Registry como `ghcr.io/j3rmed/lab1arq`.
+
+## Integración continua (CI/CD)
+
+El pipeline está definido en [`.github/workflows/build.yml`](.github/workflows/build.yml) y se ejecuta en cada `push` a `main` y a ramas `feature/**`, y en cada `pull_request` hacia `main` (estrategia **trunk-based**).
+
+Jobs encadenados:
+
+1. **test** — pruebas unitarias (`./mvnw test`) con un servicio PostgreSQL.
+2. **sonar** — análisis estático en SonarCloud.
+3. **build** — construcción del JAR y publicación como artefacto.
+4. **docker** — construcción de la imagen y publicación en GitHub Container Registry.
+5. **deploy** — despliegue en Render mediante un Deploy Hook (solo desde `main`).
+
+### Secretos requeridos en GitHub
+
+- `SONAR_TOKEN` — token de SonarCloud.
+- `RENDER_DEPLOY_HOOK` — Deploy Hook del servicio en Render.
+
+La publicación en GHCR usa el `GITHUB_TOKEN` integrado de GitHub Actions.
 
 ## Requisitos
 
