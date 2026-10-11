@@ -15,6 +15,11 @@
 	<properties>
 		<java.version>17</java.version>
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
+		<!-- SonarCloud: el scanner de Maven NO lee sonar-project.properties,
+		     por eso la configuracion va en las propiedades del pom. -->
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.organization>j3rmed</sonar.organization>
+		<sonar.projectKey>J3rmed_lab1arq</sonar.projectKey>
 	</properties>
 	<dependencies>
 		<dependency>
