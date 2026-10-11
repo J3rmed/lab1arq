@@ -1,0 +1,6 @@
+# No enviar al contexto de build lo que la imagen no necesita.
+# IMPORTANTE: target/ NO se ignora porque el Dockerfile copia target/*.jar.
+.git
+.github
+frontend
+*.md
