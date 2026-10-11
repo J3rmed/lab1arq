@@ -20,7 +20,7 @@ La aplicación está desplegada en **Render** (plan gratuito):
 | Componente | URL |
 | --- | --- |
 | Frontend | https://udeabank-front.onrender.com |
-| Backend (API REST) | https://udeabank-api.onrender.com/api |
+| Backend (API REST) | https://udeabank-api.onrender.com/api/customers |
 | Base de datos | PostgreSQL administrado en Render |
 
 > Al usar el plan gratuito, los servicios pueden tardar unos segundos en responder tras un periodo de inactividad (cold start).
