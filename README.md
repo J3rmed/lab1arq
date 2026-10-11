@@ -3,6 +3,7 @@
 [![CI/CD Pipeline](https://github.com/J3rmed/lab1arq/actions/workflows/build.yml/badge.svg)](https://github.com/J3rmed/lab1arq/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=J3rmed_lab1arq&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=J3rmed_lab1arq)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=J3rmed_lab1arq&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=J3rmed_lab1arq)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=J3rmed_lab1arq&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=J3rmed_lab1arq)
 
 Aplicación bancaria académica para administrar clientes, realizar transferencias entre cuentas y consultar el histórico de transacciones.
 
